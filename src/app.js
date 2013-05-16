@@ -5,9 +5,8 @@ app.controller('MainCtrl', ['$scope', 'createDialog', function($scope, createDia
 		createDialogService('simpleModal.html', {
               id: 'simpleDialog',
               title: 'A Simple Modal Dialog',
-              backdrop: false,
-              controller: 'SimpleModalController',
-              footerTemplate: ' '
+              backdrop: true,
+              success: {label: 'Yay', fn: function() {console.log('Successfully closed modal');}}
             });
 	};
 }]);

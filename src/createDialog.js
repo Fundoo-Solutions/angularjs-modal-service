@@ -63,8 +63,9 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
           scope.$title = options.title;
           scope.$modalCancel = closeFn;
           scope.$modalSuccess = function() {
-            var callFn = options.success || closeFn;
+            var callFn = options.success.fn || closeFn;
             callFn.call(this);
+            scope.$modalCancel();
           };
           scope.$modalSuccessLabel = options.success.label;
 
