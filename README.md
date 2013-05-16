@@ -11,12 +11,12 @@ How To Use:
 2. Import the createDialog Service in your App Controller.
 3. Call the createDialog() function from your controller, using the following syntax : 
 	
-	createDialog([template_url],{
+	<pre><code>createDialog([template_url],{
 		id : [modal_id],
 		title: [modal_title],
 		controller: [modal_controller],
 		footerTemplate: [modal_footer_template_url]
-	}, {modal_custom_data});
+	}, {modal_custom_data});</code></pre>
 
 	where, 
 		template_url, is the url of the template of the body of the template.
