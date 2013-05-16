@@ -1,4 +1,4 @@
-angular.module('FundooServicesApp').factory('createDialog', ["$document", "$compile", "$rootScope", "$controller", "$timeout",
+angular.module('fundoo.services', []).factory('createDialog', ["$document", "$compile", "$rootScope", "$controller", "$timeout",
       function ($document, $compile, $rootScope, $controller, $timeout) {
         var defaults = {
           id: null,

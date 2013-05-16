@@ -14,14 +14,23 @@ angularjs-modal-service
 	<pre><code>createDialog([template_url],{
 		id : [modal_id],
 		title: [modal_title],
+		backdrop: [backdrop_visible],
+		success: [modal_success_button],
 		controller: [modal_controller],
-		footerTemplate: [modal_footer_template_url]
+		backdropClass: [modal_backdrop_class],
+		footerTemplate: [modal_footer_template],
+		modalClass: [modal_class]
 	}, {modal_custom_data});</code></pre>
 
-	where, 
+	where,    
 		**template_url** *[string]* : the url of the template of the body of the template.   
 		**modal_id** *[string]* : the unique html id attr of the template.   
-		**modal_title** *[string]* : is the title of the modal to be displayed in its header section.   
+		**modal_title** *[string]* : is the title of the modal to be displayed in its header section.
+		**backdrop_visible(optional)** *[boolean]*: whether to hide the html page behind the modal under an overlay  
+		**modal_success_button(optional)** *[object]*: the object add a submit button to the modal with its functionality  
+		*Syntax* <pre><code>{label: '[label_of_button]', fn: '[function_on_click]'}</code></pre>  
 		**modal_controller(optional)** *[string]* : is the controller attached to the modal.    
-		**modal_footer(optional)** *[string]* : the footer template of the modal.    
+		**modal_backdrop_class(optional)** *[string]* : the css class for the backdrop of the modal.   
+		**modal_footer_template(optional)** *[string]* : the footer template of the modal.    
+		**modal_class(optional)** *[string]* : the css class for the modal.  
 		**modal_custom_data(optional)** *[object]* : is an object where each key becomes an argument to the controller of the modal.   
