@@ -20,14 +20,14 @@ angularjs-modal-service
 
 	where, 
 
-		template_url, is the url of the template of the body of the template.
+		**template_url** *<string>* : the url of the template of the body of the template.
 
-		modal_id, is the unique html id attr of the template.
+		**modal_id** *<string>* : the unique html id attr of the template.
 
-		modal_title, is the title of the modal to be displayed in its header section.
+		**modal_title** *<string>* : is the title of the modal to be displayed in its header section.
 
-		modal_controller(optional), is the controller attached to the modal. 
+		**modal_controller(optional)** *<string>* : is the controller attached to the modal. 
 
-		modal_footer_template_url(optional), is the url for the footer template of the modal.
+		**modal_footer(optional)** *<string>* : the footer template of the modal.
 
-		modal_custom_data(optional), is an object where each key becomes an argument to the controller of the modal.
+		**modal_custom_data(optional)** *<object>* : is an object where each key becomes an argument to the controller of the modal.
