@@ -20,8 +20,13 @@ How To Use:
 
 	where, 
 		template_url, is the url of the template of the body of the template.
+
 		modal_id, is the unique html id attr of the temnplate.
+
 		modal_title, is the title of the modal to be displayed in its header section.
+
 		modal_controller(optional), is the controller attached to the controller. 
+
 		modal_footer_template_url(optional), is the url for the footer template of the modal.
+		
 		modal_custom_data(optional), is an object where each ley becomes an used to the controller of the modal.
