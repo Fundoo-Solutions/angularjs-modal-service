@@ -1,9 +1,9 @@
 angularjs-modal-service
 =======================
 
-###An AngularJS service that creates a Modal Popup with a given HTML template and controller.
+#####An AngularJS service that creates a Modal Popup with a given HTML template and controller.
 
-###The Service createDialog can be used to create a modal using Twitter's Bootstrap on the fly.
+#####The Service createDialog can be used to create a modal using Twitter's Bootstrap on the fly.
 
 #####How To Use:
 
