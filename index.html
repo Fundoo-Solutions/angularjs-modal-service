@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-App="FundooModalApp">
+	<head>
+		<title>AngularJS Modal Services Demo</title>
+		<link rel="icon" href="angular.ico" type="image/x-icon">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css">
+		<style type="text/css">
+			li{
+				line-height: 30px;
+			}
+			code{
+				font-size:18px; 
+				color:#01283b
+			}
+		</style>
+	</head>
+	<body ng-controller="MainCtrl" style="background-color: #90aac5; font-size:18px">
+		<div class="row-fluid" >
+			<div class="span8 pagination-centered hero-unit" style="margin-left:215px; margin-top:50px; background-color: #78d2b6;	">
+				<h1>AngularJS Modal Service</h1>
+				<div class="span10 pagination-centered" style="margin-left:50px; margin-top:20px">
+					<button ng-click="launchSimpleModal()" class="btn btn-large btn-danger">How To Implement A Simple Modal</button>
+					<button ng-click="launchComplexModal()" class="btn btn-large btn-danger">How To Implement A Complex Modal</button>
+				</div>
+				<div class="span8 pagination-centered" style="margin-top:40px; margin-left:130px">
+					<a href="https://github.com/Fundoo-Solutions/angularjs-modal-service" class="btn btn-success" title="Github Repository" style="font-size:20px"><img src="github_icon.png">View On Github</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="row-fluid" style="margin-bottom:20px;">
+			<div class="span10" style="border:2px solid; border-radius:10px; box-shadow: 10px 10px 5px #888888; background-color:#c9e2b8; margin-left:100px; margin-top:20px; padding-left:10px; margin-bottom:20px;">
+				<h1><u>angularjs-modal-service</u></h1>
+				<h4>An AngularJS service that creates a Modal Popup with a given HTML template and controller.</h4>
+				<h4>The Service createDialog can be used to create a modal using Twitter's Bootstrap on the fly.</h4>
+				<br>
+				<h4>How To Use:</h4>
+				<div class="span10" style="margin-left:30px; padding-left:30px;">
+					<ol>
+						<li>Include the createDialog.js file in your index.html file.</li>
+						<li>Include the 'fundoo.services' as a module dependency when you define your app.</li>
+						<li>Import the createDialog Service in your App Controller.</li>
+						<li>Call the createDialog() function from your controller, using the following syntax :</li>
+					</ol>
+					<div class="span10" style="margin-left:20px; padding-left:10px; padding-top:20px; margin-bottom:20px">
+							<code >
+								createDialog([template_url],{ <br>
+								    &nbsp id : [modal_id], <br>
+								    &nbsp title: [modal_title],<br>
+								    &nbsp backdrop: [backdrop_visible], <br>
+								    &nbsp success: [modal_success_button],<br>
+								    &nbsp controller: [modal_controller], <br>
+								    &nbsp backdropClass: [modal_backdrop_class], <br>
+								    &nbsp footerTemplate: [modal_footer_template], <br>
+								    &nbsp modalClass: [modal_class] <br>
+								}, {modal_custom_data});<br>
+							</code>
+					</div>
+					<div class="span10">
+						<p>Where,</p>
+						<ul style="list-style:none;">
+							<li><strong>template_url</strong> <i>[string]</i> : the url of the template of the body of the template.</li>
+							<li><strong>modal_id</strong> <i>[string]</i> : the unique html id attr of the template. </li>
+							<li><strong>modal_title</strong> <i>[string]</i> : is the title of the modal to be displayed in its header section.</li>
+							<li><strong>backdrop_visible(optional)</strong> <i>[boolean]</i> : whether to hide the html page behind the modal under an overlay</li>
+							<li><strong>modal_success_button(optional)</strong> <i>[object]</i> : the object add a submit button to the modal with its functionality. <br>
+							<div style="margin-left:10px; padding-left:20px;"><strong><i>Syntax</i></strong><br>
+								<code>
+									{label: '[label_of_button]', fn: '[function_on_click]'}
+								</code>
+							</div> </li>
+							<br>
+							<li><strong>modal_controller(optional)</strong> <i>[string]</i> : is the controller attached to the modal.</li>
+							<li><strong>modal_backdrop_class(optional)</strong> <i>[string]</i> : the css class for the backdrop of the modal.</li>
+							<li><strong>modal_footer_template(optional)</strong> <i>[string]</i> : the footer template of the modal.</li>
+							<li><strong>modal_class(optional)</strong> <i>[string]</i> : the css class for the modal.</li>
+							<li><strong>modal_custom_data(optional)</strong> <i>[object]</i> : is an object where each key becomes an argument to the controller of the modal.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div  class="span10" style="border:2px solid; border-radius:10px; box-shadow: 10px 10px 5px #888888; background-color:#c9e2b8; margin-left:100px; margin-top:20px; padding-left:10px; margin-bottom:20px;">
+				<h2>Why is it a Service and not a Directive?</h2>
+				<ul>
+					<li>A service can be called from inside any function or any onClick event. This helps to load the modal only when needed.</li>
+					<li>Directives need to be declared on the DOM and have to be manipulated by ng-show/ng-hide to change their display DOM manipulations.</li>
+					<li>For a directive that depends on data, this data has to be passed in the form of attributes through which the directive can access it. But this data always has to be on the $scope even when not used. This is not useful as the $scope is an expensive entity and should only have data that is required by the DOM. However since a service is created or used only when required the data it uses can also remain on scope only during its lifetime.</li>
+				</ul>
+			</div>
+			<div class="span5" style="border:2px solid; border-radius:10px; box-shadow: 10px 10px 5px #888888; background-color:#c9e2b8; margin-left:100px; margin-top:20px; padding-left:10px; margin-bottom:20px; padding-top:20px; padding-bottom:20px">
+				<strong>For Further Queries Contact:</strong><br><br>
+				<a href="http://www.befundoo.com">Fundoo Solutions</a> at <a href="mailto: contact:befundoo.com">contact@befundoo.com</a> <br><br>
+
+				<a href="https://twitter.com/FundooSolutions" ><img src="follow_us_on_twitter.png"></a>
+			</div>
+		</div>
+	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+	  <script src="app.js"></script>
+	  <script src="createDialog.js"></script>
+	</body>
+</html>
