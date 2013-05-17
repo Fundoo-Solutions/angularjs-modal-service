@@ -86,7 +86,7 @@
 				<ul>
 					<li>A service can be called from inside any function or any onClick event. This helps to load the modal only when needed.</li>
 					<li>Directives need to be declared on the DOM and have to be manipulated by ng-show/ng-hide to change their display DOM manipulations.</li>
-					<li>For a directive that depends on data, this data has to be passed in the form of attributes through which the directive can access it. But this data always has to be on the $scope even when not used. This is not useful as the $scope is an expensive entity and should only have data that is required by the DOM. However since a service is created or used only when required the data it uses can also remain on scope only during its lifetime.</li>
+					<li>Consider a modal that needs some data to be passed in (say to be displayed in the popup). Supporting arbitrary tags in the directive is slightly hard. Sending the data as a key:value combo in another containing object is not nice either, as that means the data will have to be on the scope. With a service, we now have a third and better option of just passing in what we want and not exposing it unnecessarily to the scope.</li>
 				</ul>
 			</div>
 			<div class="span5" style="border:2px solid; border-radius:10px; box-shadow: 10px 10px 5px #888888; background-color:#c9e2b8; margin-left:100px; margin-top:20px; padding-left:10px; margin-bottom:20px; padding-top:20px; padding-bottom:20px">
