@@ -1,16 +1,22 @@
 angularjs-modal-service
 =======================
 
-#####An AngularJS service that creates a Modal Popup with a given HTML template and controller.
+An AngularJS service that creates a Modal Popup with a given HTML template and controller.
 
-#####The Service createDialog can be used to create a modal using Twitter's Bootstrap on the fly.
+The Service createDialog can be used to create a modal using Twitter's Bootstrap on the fly.
 
-#####How To Use:
+## Requirements
+
+1. Twitter Bootstrap CSS
+2. JQuery JS (No need for JQuery-UI)
+3. the createDialog.js file
+
+## Using it:
 
 1. Include the createDialog.js file in your index.html file.
 2. Include the 'fundoo.services' as a module dependency when you define your app
 3. Import the createDialog Service in your App Controller.
-4. Call the createDialog() function from your controller, using the following syntax : 
+4. Call the createDialog() function from your controller, using the following syntax :
 
 ```
 createDialog([template_url],{
@@ -24,19 +30,62 @@ createDialog([template_url],{
     modalClass: [modal_class]
 }, {modal_custom_data});
 ```
-where,    
-        
-**template_url** *[string]* : the url of the template of the body of the template.   
-**modal_id** *[string]* : the unique html id attr of the template.   
+where,
+
+**template_url** *[string]* : the url of the template of the body of the template.
+**modal_id** *[string]* : the unique html id attr of the template.
 **modal_title** *[string]* : is the title of the modal to be displayed in its header section.
-**backdrop_visible(optional)** *[boolean]*: whether to hide the html page behind the modal under an overlay  
-**modal_success_button(optional)** *[object]*: the object add a submit button to the modal with its functionality  
+**backdrop_visible(optional)** *[boolean]*: whether to hide the html page behind the modal under an overlay
+**modal_success_button(optional)** *[object]*: the object add a submit button to the modal with its functionality
 *Syntax*
 ```
     {label: '[label_of_button]', fn: '[function_on_click]'}
-```	
-**modal_controller(optional)** *[string]* : is the controller attached to the modal.    
-**modal_backdrop_class(optional)** *[string]* : the css class for the backdrop of the modal.   
-**modal_footer_template(optional)** *[string]* : the footer template of the modal.    
-**modal_class(optional)** *[string]* : the css class for the modal.  
-**modal_custom_data(optional)** *[object]* : is an object where each key becomes an argument to the controller of the modal.   
+```
+**modal_controller(optional)** *[string]* : is the controller attached to the modal.
+**modal_backdrop_class(optional)** *[string]* : the css class for the backdrop of the modal.
+**modal_footer_template(optional)** *[string]* : the footer template of the modal.
+**modal_class(optional)** *[string]* : the css class for the modal.
+**modal_custom_data(optional)** *[object]* : is an object where each key becomes an argument to the controller of the modal.
+
+## Where can I see a demo?
+
+Glad you asked. Go check out our GitHub page for the [AngularJS-Modal-Service]
+
+## Who are you?
+
+We are Fundoo Solutions, an awesome company based out of India who just love AngularJS. Check out our [website] or our [LinkedIn] page.
+
+## License
+
+The code above is open sourced, and licensed under the MIT License, which is the simplest and easiest to understand, and most open.
+Basically, feel free to use this code or modify it as per your needs. The actual license is below:
+
+### The MIT License
+
+> Copyright (C) 2011-2013 Vojta Jína.
+>
+> Permission is hereby granted, free of charge, to any person
+> obtaining a copy of this software and associated documentation files
+> (the "Software"), to deal in the Software without restriction,
+> including without limitation the rights to use, copy, modify, merge,
+> publish, distribute, sublicense, and/or sell copies of the Software,
+> and to permit persons to whom the Software is furnished to do so,
+> subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be
+> included in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+> EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+> NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+> BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+> ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+> CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+> SOFTWARE.
+
+
+
+[AngularJS-Modal-Service]: http://fundoo-solutions.github.io/angularjs-modal-service/
+[website]: http://www.befundoo.com
+[LinkedIn]: http://www.linkedin.com/company/fundoo-solutions

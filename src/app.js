@@ -5,7 +5,7 @@ var app = angular.module('FundooModalApp', ['fundoo.services'])
               id: 'simpleDialog',
               title: 'A Simple Modal Dialog',
               backdrop: true,
-              success: {label: 'Yay', fn: function() {console.log('Successfully closed simple modal');}}
+              success: {label: 'Success', fn: function() {console.log('Successfully closed simple modal');}}
             });
 		};
 		$scope.launchComplexModal = function() {
@@ -14,26 +14,26 @@ var app = angular.module('FundooModalApp', ['fundoo.services'])
               title: 'A Complex Modal Dialog',
               backdrop: true,
               controller: 'ComplexModalController',
-              success: {label: 'Yay', fn: function() {console.log('Successfully closed complex modal');}}
+              success: {label: 'Success', fn: function() {console.log('Successfully closed complex modal');}}
             }, {
         	  myVal: 15,
         	  assetDetails: {
         	  	name: 'My Asset',
         	  	description: 'A Very Nice Asset'
         	  }
-        	});	
+        	});
 		};
 	}])
-	.factory('StupidFactory', function() {
+	.factory('SampleFactory', function() {
 		return {
-			stupid: function() {
-				console.log('This is stupid');
+			sample: function() {
+				console.log('This is a sample');
 			}
 		};
 	})
-	.controller('ComplexModalController', ['$scope', 'StupidFactory', 'myVal', 'assetDetails',
-		 function($scope, StupidFactory, myVal, assetDetails) {
+	.controller('ComplexModalController', ['$scope', 'SampleFactory', 'myVal', 'assetDetails',
+		 function($scope, SampleFactory, myVal, assetDetails) {
 		 	$scope.myVal = myVal;
 		 	$scope.asset = assetDetails;
-		 	StupidFactory.stupid();
+		 	SampleFactory.sample();
 	}]);
