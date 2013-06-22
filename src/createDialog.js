@@ -2,6 +2,8 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
   function ($document, $compile, $rootScope, $controller, $timeout) {
     var defaults = {
       id: null,
+      template: null,
+      templateUrl: null,
       title: 'Default Title',
       backdrop: true,
       success: {label: 'OK', fn: null},
@@ -17,7 +19,15 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
     };
     var body = $document.find('body');
 
-    return function Dialog(template, options, passedInLocals) {
+    return function Dialog(templateUrl/*optional*/, options, passedInLocals) {
+
+      // Handle arguments if optional template isn't provided.
+      if(angular.isObject(templateUrl)){
+        passedInLocals = options;
+        options = templateUrl;
+      } else {
+        options.templateUrl = templateUrl;
+      }
 
       options = angular.extend({}, defaults, options); //options defined in constructor
 
@@ -28,6 +38,20 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       var footerTemplate = '<div class="modal-footer">' +
         (options.footerTemplate || defaultFooter) +
         '</div>';
+      var modalBody = (function(){
+        if(options.template){
+          if(angular.isString(options.template)){
+            // Simple string template
+            return '<div class="modal-body">' + options.template + '</div>';
+          } else {
+            // jQuery/JQlite wrapped object
+            return '<div class="modal-body">' + options.template.html() + '</div>';
+          }
+        } else {
+          // Template url
+          return '<div class="modal-body" ng-include="\'' + options.templateUrl + '\'"></div>'
+        }
+      })();
       //We don't have the scope we're gonna use yet, so just get a compile function for modal
       var modalEl = angular.element(
         '<div class="' + options.modalClass + ' fade"' + idAttr + '>' +
@@ -35,7 +59,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
           '    <a class="close-button" ng-click="$modalCancel()"></a>' +
           '    <h2>{{$title}}</h2>' +
           '  </div>' +
-          '  <div class="modal-body" ng-include="\'' + template + '\'"></div>' +
+          modalBody +
           footerTemplate +
           '</div>');
 
