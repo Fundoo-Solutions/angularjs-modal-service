@@ -1,22 +1,27 @@
 <div class="row-fluid">
 	<h3>This is how the Complex Modal was launched</h3>
 	<div>
-		<div style="border:2px solid; border-radius:2px; background-color:#c9e2b8; margin-left:10px; margin-top:10px; margin-right:10px; padding-left:10px; margin-bottom:20px; padding-top:20px; padding-bottom:20px; padding-right:20px">
-			<code style="color:#4c3f3d; font-size: 15px">
-				createDialog('complexModal.html',{ <br>
-				    &nbsp&nbsp id : 'complexDialog', <br>
-				    &nbsp&nbsp title: 'A Complex Modal Dialog',<br>
-				    &nbsp&nbsp backdrop: true, <br>
-				    &nbsp&nbsp success: {label: 'Yay', fn: function() {console.log('Successfully closed complex modal');}},<br>
-				    &nbsp&nbsp controller: 'ComplexModalController', <br>
-				},{<br>
-				    &nbsp&nbsp&nbsp myVal: 15, <br>
-        	  		&nbsp&nbsp&nbsp assetDetails: { <br>
-        	  			&nbsp&nbsp&nbsp&nbsp name: 'My Asset', <br>
-        	  			&nbsp&nbsp&nbsp&nbsp description: 'A Very Nice Asset' <br>
-				&nbsp&nbsp&nbsp}<br>
-				);<br>
-			</code>
+		<div class="codebox">
+<pre>
+createDialog(<span style="color:red">'complexModal.html'</span>,{
+    id : 'complexDialog',
+    title: 'A Complex Modal Dialog',
+    backdrop: true,
+    success: {
+        label: 'Yay',
+        fn: function() {
+            console.log('Complex modal closed');
+        }
+    },
+    controller: 'ComplexModalController'
+}<span style="color:red">,{
+    myVal: 15,
+    assetDetails: {
+        name: 'My Asset',
+        description: 'A Very Nice Asset'
+    }
+}</span>);
+</pre>
 		</div>
 		<div>
 			<h5>The Values on the scope are:</h5>
