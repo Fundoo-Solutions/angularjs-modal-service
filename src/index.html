@@ -7,11 +7,17 @@
       li{
         line-height: 30px;
       }
-      code{
-        font-size:18px;
-        color:#01283b;
-        padding: 0 4px;
+      .codebox{
+        border:2px solid;
+        border-radius:2px;
+        background-color:#c9e2b8;
+        padding:20px;
+      }
+      pre{
+        padding: 10px;
         line-height:30px;
+        color:#4c3f3d;
+        font-size: 14px;
       }
     </style>
     <script type="text/javascript">
@@ -29,11 +35,12 @@
       <div class="span8 pagination-centered hero-unit" style="margin-left:215px; margin-top:50px; background-color: #78d2b6;  ">
         <h1>AngularJS Modal Service</h1>
         <div class="span10 pagination-centered" style="margin-left:50px; margin-top:20px">
-          <button ng-click="launchSimpleModal()" class="btn btn-large btn-danger">How To Implement A Simple Modal</button>
-          <button ng-click="launchComplexModal()" class="btn btn-large btn-danger">How To Implement A Complex Modal</button>
+          <button ng-click="launchInlineModal()" class="btn btn-large btn-danger">Inline Modal</button>
+          <button ng-click="launchObjectModal()" class="btn btn-large btn-danger">Object Modal</button>
+          <button ng-click="launchSimpleModal()" class="btn btn-large btn-danger">Simple Modal</button>
+          <button ng-click="launchComplexModal()" class="btn btn-large btn-danger">Complex Modal</button>
         </div>
       </div>
-
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
