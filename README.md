@@ -12,6 +12,16 @@ The Service createDialog can be used to create a modal using Twitter's Bootstrap
 
 ## Using it:
 
+### Getting it via Bower
+
+1. bower install angularjs-modal-service
+
+### Getting it otherwise
+
+1. Download createDialog.js and include it as part of your library
+
+### Using it
+
 1. Include the createDialog.js file in your index.html file.
 2. Include the 'fundoo.services' as a module dependency when you define your app
 3. Import the createDialog Service in your App Controller.
