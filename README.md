@@ -33,6 +33,7 @@ createDialog([template_url],{
     title: [modal_title],
     backdrop: [backdrop_visible],
     success: [modal_success_button],
+    cancel: [modal_cancel_button],
     controller: [modal_controller],
     backdropClass: [modal_backdrop_class],
     footerTemplate: [modal_footer_template],
@@ -55,6 +56,7 @@ where,
     {label: '[label_of_button]', fn: '[function_on_click]'}
 ```
 
+* **modal_cancel_button(optional)** *[object]*: the object add a cancel button to the modal with its functionality. For configuration options see modal_success_button
 * **modal_controller(optional)** *[string]* : is the controller attached to the modal.
 * **modal_backdrop_class(optional)** *[string]* : the css class for the backdrop of the modal.
 * **modal_footer_template(optional)** *[string]* : the footer template of the modal.
