@@ -7,6 +7,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       title: 'Default Title',
       backdrop: true,
       success: {label: 'OK', fn: null},
+      cancel: {label: 'Close', fn: null},
       controller: null, //just like route controller declaration
       backdropClass: "modal-backdrop",
       footerTemplate: null,
@@ -33,7 +34,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
 
       var key;
       var idAttr = options.id ? ' id="' + options.id + '" ' : '';
-      var defaultFooter = '<button class="btn" ng-click="$modalCancel()">Close</button>' +
+      var defaultFooter = '<button class="btn" ng-click="$modalCancel()">{{$modalCancelLabel}}</button>' +
         '<button class="btn btn-primary" ng-click="$modalSuccess()">{{$modalSuccessLabel}}</button>';
       var footerTemplate = '<div class="modal-footer">' +
         (options.footerTemplate || defaultFooter) +
@@ -56,7 +57,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       var modalEl = angular.element(
         '<div class="' + options.modalClass + ' fade"' + idAttr + '>' +
           '  <div class="modal-header">' +
-          '    <a class="close-button" ng-click="$modalCancel()"></a>' +
+          '    <button type="button" class="close" ng-click="$modalCancel()">&times;</button>' +
           '    <h2>{{$title}}</h2>' +
           '  </div>' +
           modalBody +
@@ -91,14 +92,20 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         scope = options.scope || $rootScope.$new();
 
       scope.$title = options.title;
-      scope.$modalCancel = closeFn;
+      scope.$modalClose = closeFn;
+      scope.$modalCancel = function () {
+        var callFn = options.cancel.fn || closeFn;
+        callFn.call(this);
+        scope.$modalClose();
+      };
       scope.$modalSuccess = function () {
         var callFn = options.success.fn || closeFn;
         callFn.call(this);
-        scope.$modalCancel();
+        scope.$modalClose();
       };
       scope.$modalSuccessLabel = options.success.label;
-
+      scope.$modalCancelLabel = options.cancel.label;
+      
       if (options.controller) {
         locals = angular.extend({$scope: scope}, passedInLocals);
         ctrl = $controller(options.controller, locals);
