@@ -10,6 +10,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       cancel: {label: 'Close', fn: null},
       controller: null, //just like route controller declaration
       backdropClass: "modal-backdrop",
+      backdropCancel: true,
       footerTemplate: null,
       modalClass: "modal",
       css: {
@@ -67,8 +68,12 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       for(key in options.css) {
         modalEl.css(key, options.css[key]);
       }
-
-      var backdropEl = angular.element('<div ng-click="$modalCancel()">');
+      var divHTML = "<div ";
+      if(backdropCancel){
+        divHTML+='ng-click="$modalCancel()"';
+      }
+      divHTML+=">";
+      var backdropEl = angular.element(divHTML);
       backdropEl.addClass(options.backdropClass);
       backdropEl.addClass('fade in');
 
