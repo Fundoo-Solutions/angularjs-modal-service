@@ -55,14 +55,18 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       })();
       //We don't have the scope we're gonna use yet, so just get a compile function for modal
       var modalEl = angular.element(
-        '<div class="' + options.modalClass + ' fade"' + idAttr + '>' +
-          '  <div class="modal-header">' +
-          '    <button type="button" class="close" ng-click="$modalCancel()">&times;</button>' +
-          '    <h2>{{$title}}</h2>' +
-          '  </div>' +
-          modalBody +
-          footerTemplate +
-          '</div>');
+                '<div class="' + options.modalClass + ' fade"' + idAttr + ' style="display: block;">' +
+                    '  <div class="modal-dialog">' +
+                    '    <div class="modal-content">' +
+                    '      <div class="modal-header">' +
+                    '        <button type="button" class="close" ng-click="$modalCancel()">&times;</button>' +
+                    '        <h2>{{$title}}</h2>' +
+                    '      </div>' +
+                    modalBody +
+                    footerTemplate +
+                    '    </div>' +
+                    '  </div>' +
+                    '</div>');
 
       for(key in options.css) {
         modalEl.css(key, options.css[key]);
