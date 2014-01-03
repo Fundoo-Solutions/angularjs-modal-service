@@ -73,7 +73,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         modalEl.css(key, options.css[key]);
       }
       var divHTML = "<div ";
-      if(backdropCancel){
+      if(options.backdropCancel){
         divHTML+='ng-click="$modalCancel()"';
       }
       divHTML+=">";
