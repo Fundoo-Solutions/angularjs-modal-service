@@ -6,6 +6,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       templateUrl: null,
       title: 'Default Title',
       backdrop: true,
+      asyncSuccess: false,
       success: {label: 'OK', fn: null},
       cancel: {label: 'Close', fn: null},
       controller: null, //just like route controller declaration
@@ -109,8 +110,12 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       };
       scope.$modalSuccess = function () {
         var callFn = options.success.fn || closeFn;
-        callFn.call(this);
-        scope.$modalClose();
+        if (options.asyncSuccess) {
+          callFn(this, scope.$modalClose);
+        } else {
+          callFn.call(this);
+          scope.$modalClose();
+        }
       };
       scope.$modalSuccessLabel = options.success.label;
       scope.$modalCancelLabel = options.cancel.label;
