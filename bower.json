@@ -12,5 +12,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:Fundoo-Solutions/angularjs-modal-service.git"
-  }
+  },
+
+  "license": "MIT"
 }
