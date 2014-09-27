@@ -120,6 +120,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         ctrl = $controller(options.controller, locals);
         // Yes, ngControllerController is not a typo
         modalEl.contents().data('$ngControllerController', ctrl);
+        scope = angular.extend(scope, locals.$scope);
       }
 
       $compile(modalEl)(scope);
